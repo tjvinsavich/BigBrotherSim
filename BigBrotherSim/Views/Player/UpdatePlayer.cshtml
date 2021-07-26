@@ -1,0 +1,20 @@
+﻿@model Player
+
+<h2>Update @Model.firstName @Model.lastName</h2>
+
+@using (Html.BeginForm("UpdatePlayerToDatabase", "Player", "Post"))
+{
+    <input asp-for="id" type="hidden" value="@Model.id" />
+
+    <label asp-for="firstName" class="control-label">firstName</label>
+
+    <input type="text" name="firstName" class="form-control" value="@Model.firstName" />
+
+    <label asp-for="lastName" class="control-label">lastName</label>
+
+    <input type="text" name="lastName" class="form-control" value="@Model.lastName" />
+
+    <input type="submit" value="Update Player" class="btn btn-primary" />
+
+}
+

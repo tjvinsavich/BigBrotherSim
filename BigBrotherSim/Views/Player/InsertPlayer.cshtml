@@ -1,0 +1,20 @@
+﻿@model Player
+<h2>Create a New Player</h2>
+@using (Html.BeginForm("InsertPlayerToDatabase", "Player", "Post"))
+{
+    <input asp-for="id" type="hidden" value="" />
+    <label asp-for="firstName" class="control-label">First Name</label>
+    <input type="text" name="firstName" class="form-control" value="" />
+    <label asp-for="lastName" class="control-label">Last Name</label>
+    <input type="text" name="lastName" class="form-control" value="" />
+    @*<div class="form-group">
+        <label for="">Select a Category</label>
+        <select class="form-control" name="CategoryID" value="">
+            @foreach (var cat in Model.Categories)
+            {
+                <option value="@cat.CategoryID">@cat.CategoryID @cat.Name</option>
+            }
+        </select>
+    </div>*@
+    <input type="submit" value="Create Player" class="btn btn-primary" />
+}
