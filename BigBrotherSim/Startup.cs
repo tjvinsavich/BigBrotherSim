@@ -34,6 +34,7 @@ namespace BigBrotherSim
             });
 
             services.AddTransient<IPlayerRepository, PlayerRepository>();
+            services.AddTransient<IGameMethods, GameMethods>();
 
             services.AddControllersWithViews();
         }

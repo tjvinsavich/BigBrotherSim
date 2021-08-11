@@ -2,7 +2,99 @@
     ViewData["Title"] = "Home Page";
 }
 
+@using BigBrotherSim.Models
+
+@model Player
+ 
+<!--Temporary work-around-->
+<style>
+    body {
+        /* Margin bottom by footer height */
+        background: url('https://wallpaperaccess.com/full/2386524.jpg');
+        background-color: white;
+        background-size: cover;
+        margin-bottom: 60px;
+        color: black;
+    }
+
+    h1, span {
+        background-color: white;
+        border-radius: 5px;
+        opacity: 0.95;
+    }
+
+
+</style>
+
+<script>
+
+    function newHoH() {
+        location.href = "https://localhost:5001/Home/NewHoh";
+    }
+
+    function initialNoms() {
+        location.href = "https://localhost:5001/Home/InitialNoms";
+    }
+
+    function povPlayers() {
+        location.href = "https://localhost:5001/Home/PovPlayers";
+    }
+
+    function povWinner() {
+        location.href = "https://localhost:5001/Home/PovWinner";
+    }
+    function povCeremony() {
+        location.href = "https://localhost:5001/Home/PovCeremony";
+    }
+
+    function evictionNight() {
+        location.href = "https://localhost:5001/Home/EvictionNight";
+    }
+
+</script>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to Big Brother Sim</h1>
+</div>
+
+<button onclick="newHoH()">New HoH</button>
+<button onclick="initialNoms()">Initial Noms</button>
+<button onclick="povPlayers()">POV Players</button>
+<button onclick="povWinner()">POV Winner</button>
+<button onclick="povCeremony()">POV Ceremony</button>
+<button onclick="evictionNight()">Eviction Night</button>
+
+<div>
+    <p></p>
+    <p><span>The current HoH is:</span></p>
+    <p><span>@GamePieces.selectedPlayer.firstName</span></p>
+</div>
+
+<div>
+    <p><span>The initial nominations are:</span> </p>
+    <p><span>@GamePieces.firstNom</span></p>
+    <p><span>@GamePieces.secondNom</span></p>
+</div>
+
+<div>
+    <p><span>The POV Players are: </span></p>
+    @foreach (var player in GamePieces.povPlayers)
+    {
+        <p><span>@player</span></p>
+    }
+</div>
+
+<div>
+    <p><span>POV winner is: </span></p>
+    <p><span>@GamePieces.povWinner</span></p>
+</div>
+
+<div>
+    <p><span>POV ceremony results (FINAL NOMS):</span> </p>
+    <p><span>@GamePieces.firstNom</span></p>
+    <p><span>@GamePieces.secondNom</span></p>
+</div>
+
+<div>
+    <p><span>Evicted: </span></p>
 </div>

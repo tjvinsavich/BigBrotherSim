@@ -68,10 +68,5 @@ namespace BigBrotherSim.Controllers
 
             return RedirectToAction("Index");
         }
-
-
-
-
-
     }
 }
